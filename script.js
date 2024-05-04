@@ -10,7 +10,6 @@ document.body.addEventListener('mouseup', clicking);
 let image = new Image();
 image.src = "bird.png";
 image.onload = function () {
-    console.log(typeof (image));
     requestAnimationFrame(connect);
 }
 function clicking() {
