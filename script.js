@@ -5,7 +5,6 @@ let box_x = 640;
 let box_side = Math.ceil(Math.random() - 0.5);
 //add second box here from other side to replicate infinity feel
 let speed = -10 / 6;
-globalThis.speed;
 document.body.addEventListener('mouseup', clicking);
 let image = new Image();
 image.src = "bird.png";
@@ -17,9 +16,9 @@ function clicking() {
 }
 
 function connect() {
-    draw(bird_y, box_x, box_side);
+    draw();
     speed -= gravity;
-    var variables = math(speed, bird_y, box_x, box_side);
+    var variables = math();
     if (variables == null) {
         gameover();
     } else {
@@ -28,12 +27,12 @@ function connect() {
         requestAnimationFrame(connect);
     }
 }
-function draw(bird_y, box_x, box_side) {
+function draw() {
     ctx.clearRect(0, 0, 640, 480);
     ctx.fillRect(box_x, box_side * 480, 100, box_side*-300 + 150);
     ctx.drawImage(image, 100, bird_y);
 }
-function math(speed, bird_y, box_x, box_side) {
+function math() {
     bird_y -= speed;
     box_x -= 5/6;
     switch (box_side) {
