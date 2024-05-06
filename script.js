@@ -1,4 +1,5 @@
 let ctx = document.getElementById("canvas").getContext("2d");
+ctx.fillStyle = 'white';
 const gravity = 4/6;
 let bird_y = 200;
 let box1_x = 690;
@@ -68,6 +69,5 @@ function math() {
 function gameover() {
   ctx.clearRect(0, 0, 740, 480);
   ctx.font = '30px Arial';
-  ctx.fillStyle = 'black';
   ctx.fillText('Game Over', 250, 240);
 }
