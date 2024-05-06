@@ -30,20 +30,20 @@ function connect() {
 }
 function draw(bird_y, box_x, box_side) {
     ctx.clearRect(0, 0, 640, 480);
-    ctx.fillRect(box_x, box_side * 480, 100, 150);
+    ctx.fillRect(box_x, box_side * 480, 100, box_side*-300 + 150);
     ctx.drawImage(image, 100, bird_y);
 }
 function math(speed, bird_y, box_x, box_side) {
     bird_y -= speed;
-    box_x -= 5/10;
+    box_x -= 5/6;
     switch (box_side) {
         case 0:
-            if (100 > box_x - 50 && 100 < box_x + 50 && bird_y < 150 || bird_y > 480 || bird_y < 0) {
+            if (100 > box_x - 50 && 100 < box_x + 50 && bird_y <= 150 || bird_y > 480 || bird_y < 0) {
                 return null;
             }
             break;
         case 1:
-            if (100 > box_x - 25 && 100 < box_x + 25 && bird_y < 150) {
+            if (100 > box_x - 50 && 100 < box_x + 50 && bird_y >= 330 || bird_y > 480 || bird_y < 0) {
                 return null;
             }
             break;
