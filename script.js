@@ -1,13 +1,13 @@
 let ctx = document.getElementById("canvas").getContext("2d");
 ctx.fillStyle = 'white';
-const gravity = 4/6;
-let bird_y = 200;
+const gravity = 3/6;
+let bird_y = 230;
 let box1_x = 690;
 let box2_x = 1040;
-let box1a_y = Math.floor(Math.random() * 360);
-let box1b_y = 380-box1a_y;
-let box2b_y = Math.floor(Math.random() * 360);
-let box2a_y = 380-box2b_y;
+let box1a_y = Math.floor(Math.random() * 420);
+let box1b_y = 470-box1a_y;
+let box2b_y = Math.floor(Math.random() * 420);
+let box2a_y = 470-box2b_y;
 let speed = -8 / 6;
 document.body.addEventListener('mouseup', clicking);
 let image = new Image();
@@ -33,11 +33,11 @@ function connect() {
     }
 }
 function draw() {
-    ctx.clearRect(0, 0, 740, 480);
+    ctx.clearRect(0, 0, 740, 580);
     ctx.fillRect(box1_x, 0, 100, box1a_y);
-    ctx.fillRect(box1_x, 480, 100, -box1b_y);
+    ctx.fillRect(box1_x, 580, 100, -box1b_y);
     ctx.fillRect(box2_x, 0, 100, box2a_y);
-    ctx.fillRect(box2_x, 480, 100, -box2b_y);
+    ctx.fillRect(box2_x, 580, 100, -box2b_y);
     ctx.drawImage(image, 100, bird_y);
 }
 function math() {
@@ -46,15 +46,15 @@ function math() {
     box2_x -= 5/3;
     if (box1_x < 0) {
         box1_x = 740;
-        box1a_y = Math.floor(Math.random() * 360);
-        box1b_y = 380-box1a_y;
+        box1a_y = Math.floor(Math.random() * 420);
+        box1b_y = 470-box1a_y;
     }
     else if (box2_x < 0) {
         box2_x = 740;
-        box2b_y = Math.floor(Math.random() * 360);
-        box2a_y = 380-box2b_y;
+        box2b_y = Math.floor(Math.random() * 420);
+        box2a_y = 470-box2b_y;
     }
-    if (bird_y < 0 || bird_y > 480){
+    if (bird_y < 0 || bird_y > 580){
         return null;
     }
     else if (box1_x < 125 && box1_x > 75 && (bird_y-25 < box1a_y || bird_y+25 > box1b_y)){
@@ -67,7 +67,7 @@ function math() {
 }
 
 function gameover() {
-  ctx.clearRect(0, 0, 740, 480);
+  ctx.clearRect(0, 0, 740, 580);
   ctx.font = '30px Arial';
-  ctx.fillText('Game Over', 250, 240);
+  ctx.fillText('Game Over', 250, 290);
 }
