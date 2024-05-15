@@ -28,7 +28,7 @@ function connect() {
     draw();
     speed -= gravity;
     var variables = math();
-    if (variables == null) {
+    if (variables === null) {
         gameover(); //ends loop
     } else {
         bird_y = variables[0];
